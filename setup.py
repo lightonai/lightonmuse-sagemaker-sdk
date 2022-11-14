@@ -1,0 +1,54 @@
+import pathlib
+from setuptools import find_packages, setup
+
+
+here = pathlib.Path(__file__).parent.resolve()
+
+name = "lightonsage"
+description = "Python SDK for the LightOn models on AWS Sagemaker"
+# Get the long description from the README file
+long_description = (here / 'README.md').read_text(encoding='utf-8')
+author = "LightOn AI Research"
+author_email = "support@lighton.ai"
+classifiers = [
+    # Trove classifiers
+    # Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: Other/Proprietary License",
+]
+
+try:
+    setup(
+        name=name,
+        description=description,
+        long_description=long_description,
+        long_description_content_type='text/markdown',
+        author=author,
+        author_email=author_email,
+        url='https://github.com/lightonai/lightonmuse-sagemaker-sdk',
+        use_scm_version=True,
+        setup_requires=["setuptools_scm"],
+        install_requires=["boto3==1.26.0"],
+        packages=find_packages(exclude=["_static"]),
+        keywords=["NLP", "API", "AI"],
+        classifiers=classifiers
+    )
+except LookupError:
+    setup(
+        name=name,
+        description=description,
+        long_description=long_description,
+        author=author,
+        author_email=author_email,
+        version="test",
+        packages=find_packages(exclude=["examples", "tests", "_static"]),
+        classifiers=classifiers
+    )
