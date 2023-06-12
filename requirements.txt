@@ -1,1 +1,3 @@
-boto3==1.26.0
+boto3~=1.26.151
+setuptools~=65.5.1
+sagemaker==2.164.0
